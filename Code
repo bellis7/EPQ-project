@@ -1,0 +1,1906 @@
+import math
+pastPointsList = []
+def findBearing(firstGridReferenceSix,secondGridReferenceSix):
+    firstGridReferenceSixList = firstGridReferenceSix.split( )
+    secondGridReferenceSixList = secondGridReferenceSix.split( )
+    eastingsFirst = int(firstGridReferenceSixList[0])
+    northingsFirst = int(firstGridReferenceSixList[1])
+    eastingsSecond = int(secondGridReferenceSixList[0])
+    northingsSecond = int(secondGridReferenceSixList[1])
+    if eastingsFirst == eastingsSecond:
+        if northingsFirst < northingsSecond:
+           bearing = 0
+           return bearing
+        elif northingsSecond < northingsFirst:
+            bearing = 180
+            return bearing
+    elif northingsFirst == northingsSecond:
+        if eastingsFirst < eastingsSecond:
+            bearing = 90
+            return bearing
+        elif eastingsSecond < eastingsFirst:
+            bearing = 270
+            return bearing
+    elif eastingsFirst < eastingsSecond:
+        if northingsFirst < northingsSecond:
+            bearing = round(math.degrees(math.atan((eastingsSecond-eastingsFirst)/(northingsSecond-northingsFirst))))
+            return bearing
+        elif northingsFirst > northingsSecond:
+            bearing = 90 + round((math.degrees(math.atan((northingsFirst-northingsSecond)/(eastingsSecond-eastingsFirst)))))
+            return bearing
+    elif eastingsSecond < eastingsFirst:
+        if northingsFirst < northingsSecond:
+            bearing = 270 + round((math.degrees(math.atan((eastingsFirst-eastingsSecond)/(northingsSecond-northingsFirst)))))
+            return bearing
+        elif northingsFirst > northingsSecond:
+            bearing = 180 + round((math.degrees(math.atan((eastingsFirst-eastingsSecond)/(northingsFirst-northingsSecond)))))
+            return bearing
+
+
+
+def findDifference(overall,possBearing):
+    if overall <= possBearing:
+        Difference = possBearing - overall
+        if Difference <= 180:
+            difference = Difference
+            return difference
+        elif 180 < Difference <= 360:
+            a = 360-possBearing
+            difference = a + overall
+            return difference
+    elif possBearing <= overall:
+        Difference = overall - possBearing
+        if Difference <= 180:
+            difference = Difference
+            return difference
+        elif 180 < Difference <= 360:
+            a = 360-overall
+            difference = a + possBearing
+            return difference
+
+    
+    
+def findSquare(eastings,northings):
+    sumRef = eastings + northings
+    #84 row 
+    if 840 <= northings <= 849 :
+        if 1470 <= sumRef <= 1488 :
+            square = 6384
+            return square
+        elif 1480 <= sumRef <= 1498 :
+            square = 6484
+            return square
+        elif 1490 <= sumRef <= 1508 :
+            square = 6584
+            return square
+        elif 1500 <= sumRef <= 1518 :
+            square = 6684
+            return square
+        elif 1510 <= sumRef <= 1528 :
+            square = 6784
+            return square
+    #83 row 
+    elif 830 <= northings <= 839 :
+        if 1460 <= sumRef <= 1478 :
+            square = 6383
+            return square
+        elif 1470 <= sumRef <= 1488 :
+            square = 6483
+            return square
+        elif 1480 <= sumRef <= 1498 :
+            square = 6583
+            return square
+        elif 1490 <= sumRef <= 1508 :
+            square = 6683
+            return square
+        elif 1500 <= sumRef <= 1518 :
+            square = 6783
+            return square
+    #82 row 
+    elif 810 <= northings <= 819 :
+        if 1340 <= sumRef <= 1358 :
+            square = 5382
+            return square
+        elif 1350 <= sumRef <= 1368 :
+            square = 5482
+            return squaree
+        elif 1440 <= sumRef <= 1458 :
+            square = 6382
+            return square
+        elif 1450 <= sumRef <= 1468 :
+            square = 6482
+            return square
+        elif 1460 <= sumRef <= 1478 :
+            square = 6582
+            return square
+        elif 1470 <= sumRef <= 1488 :
+            square = 6682
+            return square
+        elif 1480 <= sumRef <= 1498 :
+            square = 6782
+            return square
+    #81 row 
+    elif 810 <= northings <= 819 :
+        if 1330 <= sumRef <= 1348 :
+            square = 5381
+            return square
+        elif 1340 <= sumRef <= 1358 :
+            square = 5481
+            return square
+        elif 1430 <= sumRef <= 1448 :
+            square = 6381
+            return square
+        elif 1440 <= sumRef <= 1458 :
+            square = 6481
+            return square
+        elif 1450 <= sumRef <= 1468 :
+            square = 6581
+            return square
+        elif 1460 <= sumRef <= 1478 :
+            square = 6681
+            return square
+        elif 1470 <= sumRef <= 1488 :
+            square = 6781
+            return square
+    #80 row 
+    elif 800 <= northings <= 809 :
+        if 1340 <= sumRef <= 1358 :
+            square = 5480
+            return square
+        elif 1350 <= sumRef <= 1368 :
+            square = 5580
+            return square
+        elif 1360 <= sumRef <= 1378 :
+            square = 5680
+            return square
+        elif 1370 <= sumRef <= 1388 :
+            square = 5780
+            return square
+        elif 1380 <= sumRef <= 1398 :
+            square = 5880
+            return square
+        elif 1390 <= sumRef <= 1408 :
+            square = 5980
+            return square
+        elif 1400 <= sumRef <= 1418 :
+            square = 6080
+            return square
+        elif 1410 <= sumRef <= 1428 :
+            square = 6180
+            return square
+        elif 1420 <= sumRef <= 1438 :
+            square = 6280
+            return square
+        elif 1430 <= sumRef <= 1448 :
+            square = 6380
+            return square
+        elif 1440 <= sumRef <= 1458 :
+            square = 6480
+            return square
+        elif 1450 <= sumRef <= 1468 :
+            square = 6580
+            return square
+        elif 1460 <= sumRef <= 1478 :
+            square = 6680
+            return square
+        elif 1470 <= sumRef <= 1488 :
+            square = 6780
+            return square
+    #79 row 
+    elif 790 <= northings <= 799 :
+        if  1320 <= sumRef <= 1338 :
+            square = 5379
+            return square
+        elif 1330 <= sumRef <= 1348 :
+            square = 5479
+            return square
+        elif 1340 <= sumRef <= 1358 :
+            square = 5579
+            return square
+        elif 1350 <= sumRef <= 1368 :
+            square = 5679
+            return square
+        elif 1360 <= sumRef <= 1378 :
+            square = 5779
+            return square
+        elif 1370 <= sumRef <= 1388 :
+            square = 5879
+            return square
+        elif 1380 <= sumRef <= 1398 :
+            square = 5979
+            return square
+        elif 1390 <= sumRef <= 1408 :
+            square = 6079
+            return square
+        elif 1400 <= sumRef <= 1418 :
+            square = 6179
+            return square
+        elif 1410 <= sumRef <= 1428 :
+            square = 6279
+            return square
+        elif 1420 <= sumRef <= 1438 :
+            square = 6379
+            return square
+        elif 1430 <= sumRef <= 1448 :
+            square = 6479
+            return square
+        elif 1440 <= sumRef <= 1458 :
+            square = 6579
+            return square
+    #78 row 
+    elif 780 <= northings <= 789 :
+        if 1310 <= sumRef <= 1328 :
+            square = 5378
+            return square
+        elif 1320 <= sumRef <= 1338 :
+            square = 5478
+            return square
+        elif 1330 <= sumRef <= 1348 :
+            square = 5578
+            return square
+        elif 1340 <= sumRef <= 1358 :
+            square = 5678
+            return square
+        elif 1350 <= sumRef <= 1368 :
+            square = 5778
+            return square
+        elif 1360 <= sumRef <= 1378 :
+            square = 5878
+            return square
+        elif 1370 <= sumRef <= 1388 :
+            square =5978
+            return square
+        elif 1380 <= sumRef <= 1398 :
+            square = 6078
+            return square
+        elif 1390 <= sumRef <= 1408 :
+            square = 6178
+            return square
+        elif 1400 <= sumRef <= 1418 :
+            square = 6278
+            return square
+        elif 1410 <= sumRef <= 1428 :
+            square = 6378
+            return square
+        elif 1420 <= sumRef <= 1438 :
+            square = 6478
+            return square
+    #77 row 
+    elif 770 <= northings <= 779 :
+        if 1300 <= sumRef <= 1318 :
+            square = 5377
+            return square
+        elif 1310 <= sumRef <= 1328 :
+            square = 5477
+            return square
+        elif 1320 <= sumRef <= 1338 :
+            square = 5577
+            return square
+        elif 1330 <= sumRef <= 1348 :
+            square = 5677
+            return square
+        elif 1340 <= sumRef <= 1358 :
+            square = 5777
+            return square
+        elif 1350 <= sumRef <= 1368 :
+            square = 5877
+            return square
+        elif 1360 <= sumRef <= 1378 :
+            square = 5977
+            return square
+        elif 1370 <= sumRef <= 1388 :
+            square = 6077
+            return square
+        elif 1380 <= sumRef <= 1398 :
+            square = 6177
+            return square
+        elif 1390 <= sumRef <= 1408 :
+            square = 6277
+            return square
+        elif 1400 <= sumRef <= 1418 :
+            square = 6377
+            return square 
+    #76 row 
+    elif 760 <= northings <= 769 :
+        if 1280 <= sumRef <= 1298 :
+            square = 5276
+            return square
+        elif 1290 <= sumRef <= 1308 :
+            square = 5376
+            return square
+        elif 1300 <= sumRef <= 1318 :
+            square = 5476
+            return square
+        elif 1310 <= sumRef <= 1328 :
+            square = 5576
+            return square
+        elif 1320 <= sumRef <= 1338 :
+            square = 5676
+            return square
+        elif 1330 <= sumRef <= 1348 :
+            square = 5776
+            return square
+        elif 1340 <= sumRef <= 1358 :
+            square = 5876
+            return square
+        elif 1350 <= sumRef <= 1368 :
+            square = 5976
+            return square
+        elif 1360 <= sumRef <= 1378 :
+            square = 6076
+            return square
+        elif 1370 <= sumRef <= 1388 :
+            square = 6176
+            return square
+        elif 1380 <= sumRef <= 1398 :
+            square = 6276
+            return square
+    #75 row 
+    elif 750 <= northings <= 759 :
+        if 1270 <= sumRef <= 1288 :
+            square = 5275
+            return square
+        elif 1280 <= sumRef <= 1298 :
+            square = 5375
+            return square
+        elif 1290 <= sumRef <= 1308 :
+            square = 5475
+            return square
+        elif 1300 <= sumRef <= 1318 :
+            square = 5575
+            return square
+        elif 1310 <= sumRef <= 1328 :
+            square = 5675
+            return square
+        elif 1320 <= sumRef <= 1338 :
+            square = 5775
+            return square
+        elif 1330 <= sumRef <= 1348 :
+            square = 5875
+            return square
+        elif 1340 <= sumRef <= 1358 :
+            square = 5975
+            return square
+        elif 1350 <= sumRef <= 1368 :
+            square = 6075
+            return square
+        elif 1360 <= sumRef <= 1378 :
+            square = 6175
+            return square
+        elif 1370 <= sumRef <= 1388 :
+            square = 6275
+            return square
+    else:
+        print("Sorry, but this area is not supported yet.")
+
+GridReferenceSix1 = input("Please enter the six-figure grid reference of your starting point with a space seperating the northings and eastings. ")
+GridReferenceSix2 = input("Please enter the six-figure grid reference of your destination with a space seperating the northings and eastings. ")
+GridReferenceSix1List = GridReferenceSix1.split( )
+GridReferenceSix2List = GridReferenceSix2.split( )
+eastings1 = int(GridReferenceSix1List[0])
+northings1 = int(GridReferenceSix1List[1])
+eastings2 = int(GridReferenceSix2List[0])
+northings2 = int(GridReferenceSix2List[1])
+
+StartSquare = findSquare(eastings1,northings1)
+endSquare = findSquare(eastings2,northings2)
+
+
+def chooseNearestPoint5(currentGridReference,endGridReference,namePossPoint1,gridRefPossPoint1,namePossPoint2,gridRefPossPoint2,namePossPoint3,gridRefPossPoint3,namePossPoint4,gridRefPossPoint4,namePossPoint5,gridRefPossPoint5):
+    OverallBearing = findBearing(currentGridReference,endGridReference)
+    Bearing1 = findBearing(currentGridReference,gridRefPossPoint1)
+    Bearing2 = findBearing(currentGridReference,gridRefPossPoint2)
+    Bearing3 = findBearing(currentGridReference,gridRefPossPoint3)
+    Bearing4 = findBearing(currentGridReference,gridRefPossPoint4)
+    Bearing5 = findBearing(currentGridReference,gridRefPossPoint5)
+    difference1 = findDifference(OverallBearing,Bearing1)
+    difference2 = findDifference(OverallBearing,Bearing2)
+    difference3 = findDifference(OverallBearing,Bearing3)
+    difference4 = findDifference(OverallBearing,Bearing4)
+    difference5 = findDifference(OverallBearing,Bearing5)
+    differencesList = [difference1,difference2,difference3,difference4]
+    differencesList = sorted(differencesList)
+    if differencesList[0] == difference1:
+                    NearestPointName = namePossPoint1
+                    NearestPointGridRef = gridRefPossPoint1
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference2:
+                    NearestPointName = namePossPoint2
+                    NearestPointGridRef = gridRefPossPoint2
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference3:
+                    NearestPointName = namePossPoint3
+                    NearestPointGridRef = gridRefPossPoint3
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference4:
+                    NearestPointName = namePossPoint4
+                    NearestPointGridRef = gridRefPossPoint4
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference5:
+                    NearestPointName = namePossPoint5
+                    NearestPointGridRef = gridRefPossPoint5
+                    return NearestPointName,NearestPointGridRef
+
+
+def chooseNearestPoint4(currentGridReference,endGridReference,namePossPoint1,gridRefPossPoint1,namePossPoint2,gridRefPossPoint2,namePossPoint3,gridRefPossPoint3,namePossPoint4,gridRefPossPoint4):
+    OverallBearing = findBearing(currentGridReference,endGridReference)
+    Bearing1 = findBearing(currentGridReference,gridRefPossPoint1)
+    Bearing2 = findBearing(currentGridReference,gridRefPossPoint2)
+    Bearing3 = findBearing(currentGridReference,gridRefPossPoint3)
+    Bearing4 = findBearing(currentGridReference,gridRefPossPoint4)
+    difference1 = findDifference(OverallBearing,Bearing1)
+    difference2 = findDifference(OverallBearing,Bearing2)
+    difference3 = findDifference(OverallBearing,Bearing3)
+    difference4 = findDifference(OverallBearing,Bearing4)
+    differencesList = [difference1,difference2,difference3,difference4]
+    differencesList = sorted(differencesList)
+    if differencesList[0] == difference1:
+                    NearestPointName = namePossPoint1
+                    NearestPointGridRef = gridRefPossPoint1
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference2:
+                    NearestPointName = namePossPoint2
+                    NearestPointGridRef = gridRefPossPoint2
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference3:
+                    NearestPointName = namePossPoint3
+                    NearestPointGridRef = gridRefPossPoint3
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference4:
+                    NearestPointName = namePossPoint4
+                    NearestPointGridRef = gridRefPossPoint4
+                    return NearestPointName,NearestPointGridRef
+
+
+def chooseNearestPoint3(currentGridReference,endGridReference,namePossPoint1,gridRefPossPoint1,namePossPoint2,gridRefPossPoint2,namePossPoint3,gridRefPossPoint3):
+    OverallBearing = findBearing(currentGridReference,endGridReference)
+    Bearing1 = findBearing(currentGridReference,gridRefPossPoint1)
+    Bearing2 = findBearing(currentGridReference,gridRefPossPoint2)
+    Bearing3 = findBearing(currentGridReference,gridRefPossPoint3)
+    difference1 = findDifference(OverallBearing,Bearing1)
+    difference2 = findDifference(OverallBearing,Bearing2)
+    difference3 = findDifference(OverallBearing,Bearing3)
+    differencesList = [difference1,difference2,difference3]
+    differencesList = sorted(differencesList)
+    if differencesList[0] == difference1:
+                    NearestPointName = namePossPoint1
+                    NearestPointGridRef = gridRefPossPoint1
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference2:
+                    NearestPointName = namePossPoint2
+                    NearestPointGridRef = gridRefPossPoint2
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference3:
+                    NearestPointName = namePossPoint3
+                    NearestPointGridRef = gridRefPossPoint3
+                    return NearestPointName,NearestPointGridRef
+
+def chooseNearestPoint2(currentGridReference,endGridReference,namePossPoint1,gridRefPossPoint1,namePossPoint2,gridRefPossPoint2):
+    OverallBearing = findBearing(currentGridReference,endGridReference)
+    Bearing1 = findBearing(currentGridReference,gridRefPossPoint1)
+    Bearing2 = findBearing(currentGridReference,gridRefPossPoint2)
+    difference1 = findDifference(OverallBearing,Bearing1)
+    difference2 = findDifference(OverallBearing,Bearing2)
+    differencesList = [difference1, difference2]
+    differencesList = sorted(differencesList)
+    if differencesList[0] == difference1:
+                    NearestPointName = namePossPoint1
+                    NearestPointGridRef = gridRefPossPoint1
+                    return NearestPointName,NearestPointGridRef
+    elif differencesList[0] == difference2:
+                    NearestPointName = namePossPoint2
+                    NearestPointGridRef = gridRefPossPoint2
+                    return NearestPointName,NearestPointGridRef
+
+        
+def chooseNearestPoint(Square):   
+    if Square == 6384:
+        nameNearestPoint = "the bridge near Long Ridge"
+        gridRefNearestPoint = "639 845"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6484:
+        nameNearestPoint = "the bridge near Long Ridge"
+        gridRefNearestPoint = "639 845"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6584:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the bridge near Long Ridge","639 845","the bridge near Metherall","670 837")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6684:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the bridge near Long Ridge","639 845","the bridge near Metherall","670 837")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6784:
+        nameNearestPoint = "the bridge near Metherall"
+        gridRefNearestPoint = "670 837"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6383:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the bridge near Long Ridge","639 845","Sittaford Tor","633 830")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6483:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"the bridge near Long Ridge","639 845","Sittaford Tor","633 830","Assycombe Hill","664 820","Stannon Tor","646 811")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6583:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the bridge near Long Ridge","639 845","the bridge near Metherall","670 837")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6683:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the bridge near Long Ridge","639 845","the bridge near Metherall","670 837")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6783:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"the bridge near Metherall","670 837","Assycombe Hill","664 820","Water Hill","671 813")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5382:
+        nameNearestPoint = "Lanehead"
+        gridRefNearestPoint = "537 823"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5482:
+        nameNearestPoint = "Lanehead"
+        gridRefNearestPoint = "537 823"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6382:
+        nameNearestPoint = "Sittaford Tor"
+        gridRefNearestPoint = "633 830"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6482:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"the bridge near Long Ridge","639 845","Sittaford Tor","633 830","Assycombe Hill","664 820","Stannon Tor","646 811")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6582:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint5(GridReferenceSix1,GridReferenceSix2,"Sittaford Tor","633 830","Assycombe Hill","664 820","Stannon Tor","646 811","Merripit Hill","657 803","Water Hill","671 813")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6682:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Assycombe Hill","664 820","Water Hill","671 813","the bridge near Metherall","670 837")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6782:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Assycombe Hill","664 820","Water Hill","671 813","the bridge near Metherall","670 837")
+        return nameNearestPoint,gridRefNearestPoint 
+        
+    elif Square == 5381:
+        nameNearestPoint = "Standon Steps"
+        gridRefNearestPoint = "539 815"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5481:
+        if overallBearing> 180:
+            nameNearestPoint = "Standon Steps"
+            gridRefNearestPoint = "539 815"
+            return nameNearestPoint,gridRefNearestPoint 
+        else:
+            nameNearestPoint = "Bagga Tor"
+            gridRefNearestPoint = "548 805"
+            return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6381:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Sittaford Tor","633 830","Braddon Tor","622 799","Postbridge visitor centre","646 788")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6481:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Stannon Tor","646 811","Sittaford Tor","633 830","Hartland Tor","641 799")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6581:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint5(GridReferenceSix1,GridReferenceSix2,"Sittaford Tor","633 830","Assycombe Hill","664 820","Stannon Tor","646 811","Merripit Hill","657 803","Water Hill","671 813")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6681:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"Sittaford Tor","633 830","Assycombe Hill","664 820","Stannon Tor","646 811","Water Hill","671 813")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6781:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Water Hill","671 813","the bridge near Metherall","670 837")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5480:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Bagga Tor","548 805","Standon Steps","539 815")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5580:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Bagga Tor","548 805","White Barrow","568 793")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5680:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Bagga Tor","548 805","White Barrow","568 793")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5780:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Bagga Tor","548 805","White Barrow","568 793","Conies Down","580 789")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5880:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Rough Tor","606 798","Conies Down","580 789","Lydford Tor","599 781")
+        return nameNearestPoint,gridRefNearestPoint 
+        
+    elif Square == 5980:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Rough Tor","606 798","Conies Down","580 789")
+        return nameNearestPoint,gridRefNearestPoint 
+        
+    elif Square == 6080:
+        nameNearestPoint = "Rough Tor"
+        gridRefNearestPoint = "606 798"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6180:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Rough Tor","606 798","Lower White Tor","619 792","Braddon Tor","622 799")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6280:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Braddon Tor","622 799","Postbridge visitor centre","646 788")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6380:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Braddon Tor","622 799","Postbridge visitor centre","646 788")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6480:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Hartland Tor","641 799","Stannon Tor","646 811")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6580:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"Assycombe Hill","664 820","Stannon Tor","646 811","Merripit Hill","657 803","Postbridge visitor centre","646 788")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6680:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Merripit Hill","657 803","Postbridge visitor centre","646 788")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6780:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Merripit Hill","657 803","Postbridge visitor centre","646 788")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5379:
+        nameNearestPoint = "the Standing Stone"
+        gridRefNearestPoint = "550 787"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5479:
+        nameNearestPoint = "the Standing Stone"
+        gridRefNearestPoint = "550 787"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5579:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"White Barrow","568 793","the Standing Stone","550 787")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5679:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"White Barrow","568 793","the Standing Stone","550 787","Bagga Tor","548 805","Conies Down","580 789")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5779:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"White Barrow","568 793","Conies Down","580 789")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5879:
+        nameNearestPoint = "Conies Down"
+        gridRefNearestPoint = "580 789"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5979:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Rough Tor","606 798","Conies Down","580 789","Lydford Tor","599 781")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6079:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Rough Tor","606 798","Lydford Tor","599 781")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6179:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Rough Tor","606 798","Lower White Tor","619 792","Braddon Tor","622 799")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6279:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Lower White Tor","619 792","Braddon Tor","622 799")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6379:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Postbridge visitor centre","646 788","Braddon Tor","622 799")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6479:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Merripit Hill","657 803","Postbridge visitor centre","646 788","Hartland Tor","641 799")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6579:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Merripit Hill","657 803","Postbridge visitor centre","646 788")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5378:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the Standing Stone","550 787","Roos Tor","543 765")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5478:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the Standing Stone","550 787","Roos Tor","543 765")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5578:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"the Standing Stone","550 787","Roos Tor","543 765","White Barrow","568 793","Dead Lake","565 784")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5678:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"Dead Lake","565 784","White Barrow","568 793","Black Dunghill river crossing","578 777","Great Mis Tor","562 769",)
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5778:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Dead Lake","565 784","Black Dunghill river crossing","578 777")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5878:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Conies Down","580 789","Lydford Tor","599 781")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5978:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Conies Down","580 789","Lydford Tor","599 781")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6078:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"Lydford Tor","599 781","Rough Tor","606 798","Longaford Tor","615 778","Beardown Tors","603 775")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6178:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint4(GridReferenceSix1,GridReferenceSix2,"Lydford Tor","599 781","Lower White Tor","619 792","Longaford Tor","615 778","Beardown Tors","603 775")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6278:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Lower White Tor","619 792","Longaford Tor","615 778","Powder Mills river crossing","628 773")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6378:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Postbridge visitor centre","646 788","Arch Tor","633 781","Powder Mills river crossing","628 773")
+        return nameNearestPoint,gridRefNearestPoint 
+        
+    elif Square == 6478:
+        nameNearestPoint = "Postbridge visitor centre"
+        gridRefNearestPoint = "646 788"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5377:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"the Standing Stone","550 787","Roos Tor","543 765","Cox Tor","530 761")
+        return nameNearestPoint,gridRefNearestPoint 
+        
+    elif Square == 5477:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"the Standing Stone","550 787","Roos Tor","543 765")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5577:
+        bank = input("Please enter 'NW' if you are on the north west bank of the River Walkham or 'SE' if you are on the south east bank of the River Walkham. ")
+        if bank == "NW":
+            nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"the Standing Stone","550 787","Roos Tor","543 765","Dead Lake","565 784")
+            return nameNearestPoint,gridRefNearestPoint 
+        elif bank == "SE":
+            nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Great Mis Tor","562 769","Dead Lake","565 784")
+            return nameNearestPoint,gridRefNearestPoint 
+                   
+    elif Square == 5677:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Great Mis Tor","562 769","Dead Lake","565 784")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5777:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Black Dunghill river crossing","578 777","Dead Lake","565 784")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5877:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Black Dunghill river crossing","578 777","Holming Beam","590 769")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5977:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Holming Beam","590 769","Lydford Tor","599 781","Beardown Tors","603 775")
+        return nameNearestPoint,gridRefNearestPoint 
+        
+    elif Square == 6077:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Longaford Tor","615 778","Lydford Tor","599 781","Beardown Tors","603 775")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6177:
+        bank = input("Please enter 'W' if you are on the west bank of the West Dart River or 'E' if you are on the east bank of the West Dart River. ")
+        if bank == "W":
+            nameNearestPoint = "Beardown Tors"
+            gridRefNearestPoint = "603 775"
+            return nameNearestPoint,gridRefNearestPoint 
+        elif bank == "E":
+            nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Longaford Tor","615 778","Littaford Tors","615 771")
+            return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6277:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Longaford Tor","615 778","Powder Mills river crossing","628 773")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6377:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Arch Tor","633 781","Powder Mills river crossing","628 773")
+        return nameNearestPoint,gridRefNearestPoint 
+                   
+    elif Square == 5276:
+        nameNearestPoint = "Cox Tor"
+        gridRefNearestPoint = "530 761"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5376:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Cox Tor","530 761","Roos Tor","543 765")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5476:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Cox Tor","530 761","Roos Tor","543 765")
+        return nameNearestPoint,gridRefNearestPoint 
+
+
+    elif Square == 5576:
+         bank = input("Please enter 'W' if you are on the north west bank of the River Walkham or 'E' if you are on the south east bank of the River Walkham. ")
+         if bank == "W":
+            nameNearestPoint = "Roos Tor"
+            gridRefNearestPoint = "543 765"
+            return nameNearestPoint,gridRefNearestPoint 
+         elif bank == "E":
+            nameNearestPoint = "Great Mis Tor"
+            gridRefNearestPoint = "562 769"
+            return nameNearestPoint,gridRefNearestPoint 
+                   
+    elif Square == 5676:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Holming Beam","590 769","Black Dunghill river crossing","578 777","Great Mis Tor","562 769")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5776:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint3(GridReferenceSix1,GridReferenceSix2,"Holming Beam","590 769","Black Dunghill river crossing","578 777","Great Mis Tor","562 769")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5876:
+        nameNearestPoint = "Holming Beam"
+        gridRefNearestPoint = "590 769"
+        return nameNearestPoint,gridRefNearestPoint 
+                    
+    elif Square == 5976:
+        nameNearestPoint = "Holming Beam"
+        gridRefNearestPoint = "590 769"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6076:
+        nameNearestPoint = "Beardown Tors"
+        gridRefNearestPoint = "603 775"
+        return nameNearestPoint,gridRefNearestPoint 
+                    
+    elif Square == 6176:
+        bank = input("Please enter 'W' if you are on the west bank of the West Dart River or 'E' if you are on the east bank of the West Dart River. ")
+        if bank == "W":
+            nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Holming Beam","590 769","Beardown Tors","603 775")
+            return nameNearestPoint,gridRefNearestPoint 
+        elif bank == "E":
+            nameNearestPoint = "Littaford Tors"
+            gridRefNearestPoint = "615 771"
+            return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 6276:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Powder Mills river crossing","628 773","Littaford Tors","615 771")
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5275:
+        nameNearestPoint = "Cox Tor"
+        gridRefNearestPoint = "530 761"
+        return nameNearestPoint,gridRefNearestPoint 
+
+    elif Square == 5375:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Cox Tor","530 761","Roos Tor","543 765")
+        return nameNearestPoint,gridRefNearestPoint
+
+    elif Square == 5475:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Cox Tor","530 761","Roos Tor","543 765")
+        return nameNearestPoint,gridRefNearestPoint
+
+    elif Square == 5575:
+         bank = input("Please enter 'W' if you are on the north west bank of the River Walkham or 'E' if you are on the south east bank of the River Walkham. ")
+         if bank == "W":
+            nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Cox Tor","530 761","Roos Tor","543 765")
+            return nameNearestPoint,gridRefNearestPoint
+         elif bank == "E":
+            nameNearestPoint = "Great Mis Tor"
+            gridRefNearestPoint = "562 769"
+            return nameNearestPoint,gridRefNearestPoint
+
+    elif Square == 5675:
+        nameNearestPoint = "Great Mis Tor"
+        gridRefNearestPoint = "562 769"
+        return nameNearestPoint,gridRefNearestPoint
+
+    elif Square == 5775:
+        nameNearestPoint = "Great Mis Tor"
+        gridRefNearestPoint = "562 769"
+        return nameNearestPoint,gridRefNearestPoint
+                    
+    elif Square == 5875:
+        nameNearestPoint,gridRefNearestPoint = chooseNearestPoint2(GridReferenceSix1,GridReferenceSix2,"Holming Beam","590 769","Great Mis Tor","562 769")
+        return nameNearestPoint,gridRefNearestPoint
+
+    elif Square == 5975:
+         bank = input("Please enter 'W' if you are on the west bank of the Cowsic River or 'E' if you are on the east bank of the Cowsic River. ")
+         if bank == "W":
+            nameNearestPoint = "Holming Beam"
+            gridRefNearestPoint = "590 769"
+            return nameNearestPoint,gridRefNearestPoint
+         elif bank == "E":
+            nameNearestPoint = "Beardown Tors"
+            gridRefNearestPoint = "603 775"
+            return nameNearestPoint,gridRefNearestPoint
+
+    elif Square == 6075:
+        bank = input("Please enter 'W' if you are on the west bank of the West Dart River or 'E' if you are on the east bank of the West Dart River. ")
+        if bank == "W":
+            nameNearestPoint = "Beardown Tors"
+            gridRefNearestPoint = "603 775"
+            return nameNearestPoint,gridRefNearestPoint 
+        elif bank == "E":
+            nameNearestPoint = "Littaford Tors"
+            gridRefNearestPoint = "615 771"
+            return nameNearestPoint,gridRefNearestPoint 
+    elif Square == 6175:
+        bank = input("Please enter 'W' if you are on the west bank of the West Dart River or 'E' if you are on the east bank of the West Dart River. ")
+        if bank == "W":
+            nameNearestPoint = "Beardown Tors"
+            gridRefNearestPoint = "603 775"
+            return nameNearestPoint,gridRefNearestPoint 
+        elif bank == "E":
+            nameNearestPoint = "Littaford Tors"
+            gridRefNearestPoint = "615 771"
+            return nameNearestPoint,gridRefNearestPoint 
+
+
+
+
+
+
+
+
+#choose bearing functions
+
+    
+def ChooseBearingSeven(nameCurrentPoint,gridRefCurrentPoint,namepossPointA,gridRefpossPointA,namepossPointB,gridRefpossPointB,namepossPointC,gridRefpossPointC,namepossPointD,gridRefpossPointD,namepossPointE,gridRefpossPointE,namepossPointF,gridRefpossPointF,namepossPointG,gridRefpossPointG):
+        BearingA = findBearing(gridRefCurrentPoint,gridRefpossPointA)
+        BearingB = findBearing(gridRefCurrentPoint,gridRefpossPointB)
+        BearingC = findBearing(gridRefCurrentPoint,gridRefpossPointC)
+        BearingD = findBearing(gridRefCurrentPoint,gridRefpossPointD)
+        BearingE = findBearing(gridRefCurrentPoint,gridRefpossPointE)
+        BearingF = findBearing(gridRefCurrentPoint,gridRefpossPointF)
+        BearingG = findBearing(gridRefCurrentPoint,gridRefpossPointG)
+        differenceA = findDifference(overallBearing,BearingA)
+        differenceB = findDifference(overallBearing,BearingB)
+        differenceC = findDifference(overallBearing,BearingC)
+        differenceD = findDifference(overallBearing,BearingD)
+        differenceE = findDifference(overallBearing,BearingE)
+        differenceF = findDifference(overallBearing,BearingF)
+        differenceG = findDifference(overallBearing,BearingG)
+        differencesList = [differenceA, differenceB ,differenceC, differenceD, differenceE, differenceF, differenceG]
+        differencesList = sorted(differencesList)
+        if differencesList[0] == differenceA:
+                        chosenBearing = BearingA
+                        gridRefCurrentPoint = gridRefpossPointA
+                        pastPointsList.append(namepossPointA)
+                        pastPointsList.append(gridRefpossPointA)
+                        nameCurrentPoint = namepossPointA
+                        instructions = "A"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceB:
+                        chosenBearing = BearingB
+                        gridRefCurrentPoint = gridRefpossPointB
+                        pastPointsList.append(namepossPointB)
+                        pastPointsList.append(gridRefpossPointB)
+                        nameCurrentPoint = namepossPointB
+                        instructions = "B"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceC:
+                        chosenBearing = BearingC
+                        gridRefCurrentPoint = gridRefpossPointC
+                        pastPointsList.append(namepossPointC)
+                        pastPointsList.append(gridRefpossPointC)
+                        nameCurrentPoint = namepossPointC
+                        instructions = "C"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceD:
+                        chosenBearing = BearingD
+                        gridRefCurrentPoint = gridRefpossPointD
+                        pastPointsList.append(namepossPointD)
+                        pastPointsList.append(gridRefpossPointD)
+                        nameCurrentPoint = namepossPointD
+                        instructions = "D"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceE:
+                        chosenBearing = BearingE
+                        gridRefCurrentPoint = gridRefpossPointE
+                        pastPointsList.append(namepossPointE)
+                        pastPointsList.append(gridRefpossPointE)
+                        nameCurrentPoint = namepossPointE
+                        instructions = "E"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceF:
+                        chosenBearing = BearingF
+                        gridRefCurrentPoint = gridRefpossPointF
+                        pastPointsList.append(namepossPointF)
+                        pastPointsList.append(gridRefpossPointF)
+                        nameCurrentPoint = namepossPointF
+                        instructions = "F"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceG:
+                        chosenBearing = BearingG
+                        gridRefCurrentPoint = gridRefpossPointG
+                        pastPointsList.append(namepossPointG)
+                        pastPointsList.append(gridRefpossPointG)
+                        nameCurrentPoint = namepossPointG
+                        instructions = "G"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        
+def ChooseBearingSix(nameCurrentPoint,gridRefCurrentPoint,namepossPointA,gridRefpossPointA,namepossPointB,gridRefpossPointB,namepossPointC,gridRefpossPointC,namepossPointD,gridRefpossPointD,namepossPointE,gridRefpossPointE,namepossPointF,gridRefpossPointF):
+        BearingA = findBearing(gridRefCurrentPoint,gridRefpossPointA)
+        BearingB = findBearing(gridRefCurrentPoint,gridRefpossPointB)
+        BearingC = findBearing(gridRefCurrentPoint,gridRefpossPointC)
+        BearingD = findBearing(gridRefCurrentPoint,gridRefpossPointD)
+        BearingE = findBearing(gridRefCurrentPoint,gridRefpossPointE)
+        BearingF = findBearing(gridRefCurrentPoint,gridRefpossPointF)
+        differenceA = findDifference(overallBearing,BearingA)
+        differenceB = findDifference(overallBearing,BearingB)
+        differenceC = findDifference(overallBearing,BearingC)
+        differenceD = findDifference(overallBearing,BearingD)
+        differenceE = findDifference(overallBearing,BearingE)
+        differenceF = findDifference(overallBearing,BearingF)
+        differencesList = [differenceA, differenceB ,differenceC, differenceD, differenceE, differenceF]
+        differencesList = sorted(differencesList)
+        if differencesList[0] == differenceA:
+                        gridRefCurrentPoint = gridRefpossPointA
+                        pastPointsList.append(namepossPointA)
+                        pastPointsList.append(gridRefpossPointA)
+                        nameCurrentPoint = namepossPointA
+                        instructions = "A"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceB:
+                        gridRefCurrentPoint = gridRefpossPointB
+                        pastPointsList.append(namepossPointB)
+                        pastPointsList.append(gridRefpossPointB)
+                        nameCurrentPoint = namepossPointB
+                        instructions = "B"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceC:
+                        gridRefCurrentPoint = gridRefpossPointC
+                        pastPointsList.append(namepossPointC)
+                        pastPointsList.append(gridRefpossPointC)
+                        nameCurrentPoint = namepossPointC
+                        instructions = "C"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceD:
+                        gridRefCurrentPoint = gridRefpossPointD
+                        pastPointsList.append(namepossPointD)
+                        pastPointsList.append(gridRefpossPointD)
+                        nameCurrentPoint = namepossPointD
+                        instructions = "D"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceE:
+                        gridRefCurrentPoint = gridRefpossPointE
+                        pastPointsList.append(namepossPointE)
+                        pastPointsList.append(gridRefpossPointE)
+                        nameCurrentPoint = namepossPointE
+                        instructions = "E"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+        elif differencesList[0] == differenceF:
+                        gridRefCurrentPoint = gridRefpossPointF
+                        pastPointsList.append(namepossPointF)
+                        pastPointsList.append(gridRefpossPointF)
+                        nameCurrentPoint = namepossPointF
+                        instructions = "F"
+                        return gridRefCurrentPoint,nameCurrentPoint,instructions
+
+
+def ChooseBearingFive(nameCurrentPoint,gridRefCurrentPoint,namepossPointA,gridRefpossPointA,namepossPointB,gridRefpossPointB,namepossPointC,gridRefpossPointC,namepossPointD,gridRefpossPointD,namepossPointE,gridRefpossPointE):    
+    BearingA = findBearing(gridRefCurrentPoint,gridRefpossPointA)
+    BearingB = findBearing(gridRefCurrentPoint,gridRefpossPointB)
+    BearingC = findBearing(gridRefCurrentPoint,gridRefpossPointC)
+    BearingD = findBearing(gridRefCurrentPoint,gridRefpossPointD)
+    BearingE = findBearing(gridRefCurrentPoint,gridRefpossPointE)
+    differenceA = findDifference(overallBearing,BearingA)
+    differenceB = findDifference(overallBearing,BearingB)
+    differenceC = findDifference(overallBearing,BearingC)
+    differenceD = findDifference(overallBearing,BearingD)
+    differenceE = findDifference(overallBearing,BearingE)
+    differencesList = [differenceA, differenceB ,differenceC, differenceD, differenceE]
+    differencesList = sorted(differencesList)
+    if differencesList[0] == differenceA:
+                    chosenBearing = BearingA
+                    gridRefCurrentPoint = gridRefpossPointA
+                    pastPointsList.append(namepossPointA)
+                    pastPointsList.append(gridRefpossPointA)
+                    nameCurrentPoint = namepossPointA
+                    instructions = "A"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceB:
+                    chosenBearing = BearingB
+                    gridRefCurrentPoint = gridRefpossPointB
+                    pastPointsList.append(namepossPointB)
+                    pastPointsList.append(gridRefpossPointB)
+                    nameCurrentPoint = namepossPointB
+                    instructions = "B"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceC:
+                    chosenBearing = BearingC
+                    gridRefCurrentPoint = gridRefpossPointC
+                    pastPointsList.append(namepossPointC)
+                    pastPointsList.append(gridRefpossPointC)
+                    nameCurrentPoint = namepossPointC
+                    instructions = "C"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceD:
+                    chosenBearing = BearingD
+                    gridRefCurrentPoint = gridRefpossPointD
+                    pastPointsList.append(namepossPointD)
+                    pastPointsList.append(gridRefpossPointD)
+                    nameCurrentPoint = namepossPointD
+                    instructions = "D"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceE:
+                    chosenBearing = BearingE
+                    gridRefCurrentPoint = gridRefpossPointE
+                    pastPointsList.append(namepossPointE)
+                    pastPointsList.append(gridRefpossPointE)
+                    nameCurrentPoint = namepossPointE
+                    instructions = "E"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+
+
+def ChooseBearingFour(nameCurrentPoint,gridRefCurrentPoint,namepossPointA,gridRefpossPointA,namepossPointB,gridRefpossPointB,namepossPointC,gridRefpossPointC,namepossPointD,gridRefpossPointD):
+    BearingA = findBearing(gridRefCurrentPoint,gridRefpossPointA)
+    BearingB = findBearing(gridRefCurrentPoint,gridRefpossPointB)
+    BearingC = findBearing(gridRefCurrentPoint,gridRefpossPointC)
+    BearingD = findBearing(gridRefCurrentPoint,gridRefpossPointD)
+    differenceA = findDifference(overallBearing,BearingA)
+    differenceB = findDifference(overallBearing,BearingB)
+    differenceC = findDifference(overallBearing,BearingC)
+    differenceD = findDifference(overallBearing,BearingD)
+    differencesList = [differenceA, differenceB ,differenceC, differenceD]
+    differencesList = sorted(differencesList)
+    
+    if differencesList[0] == differenceA:
+                    chosenBearing = BearingA
+                    gridRefCurrentPoint = gridRefpossPointA
+                    pastPointsList.append(namepossPointA)
+                    pastPointsList.append(gridRefpossPointA)
+                    nameCurrentPoint = namepossPointA
+                    instructions = "A"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceB:
+                    chosenBearing = BearingB
+                    gridRefCurrentPoint = gridRefpossPointB
+                    pastPointsList.append(namepossPointB)
+                    pastPointsList.append(gridRefpossPointB)
+                    nameCurrentPoint = namepossPointB
+                    instructions = "B"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceC:
+                    chosenBearing = BearingC
+                    gridRefCurrentPoint = gridRefpossPointC
+                    pastPointsList.append(namepossPointC)
+                    pastPointsList.append(gridRefpossPointC)
+                    nameCurrentPoint = namepossPointC
+                    instructions = "C"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceD:
+                    chosenBearing = BearingD
+                    gridRefCurrentPoint = gridRefpossPointD
+                    pastPointsList.append(namepossPointD)
+                    pastPointsList.append(gridRefpossPointD)
+                    nameCurrentPoint = namepossPointD
+                    instructions = "D"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+
+
+def ChooseBearingThree(nameCurrentPoint,gridRefCurrentPoint,namepossPointA,gridRefpossPointA,namepossPointB,gridRefpossPointB,namepossPointC,gridRefpossPointC):
+    BearingA = findBearing(gridRefCurrentPoint,gridRefpossPointA)
+    BearingB = findBearing(gridRefCurrentPoint,gridRefpossPointB)
+    BearingC = findBearing(gridRefCurrentPoint,gridRefpossPointC)
+    differenceA = findDifference(overallBearing,BearingA)
+    differenceB = findDifference(overallBearing,BearingB)
+    differenceC = findDifference(overallBearing,BearingC)
+    differencesList = [differenceA, differenceB ,differenceC]
+    differencesList = sorted(differencesList)
+    
+    if differencesList[0] == differenceA:
+                    chosenBearing = BearingA
+                    gridRefCurrentPoint = gridRefpossPointA
+                    pastPointsList.append(namepossPointA)
+                    pastPointsList.append(gridRefpossPointA)
+                    nameCurrentPoint = namepossPointA
+                    instructions = "A"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceB:
+                    chosenBearing = BearingB
+                    gridRefCurrentPoint = gridRefpossPointB
+                    pastPointsList.append(namepossPointB)
+                    pastPointsList.append(gridRefpossPointB)
+                    nameCurrentPoint = namepossPointB
+                    instructions = "B"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceC:
+                    chosenBearing = BearingC
+                    gridRefCurrentPoint = gridRefpossPointC
+                    pastPointsList.append(namepossPointC)
+                    pastPointsList.append(gridRefpossPointC)
+                    nameCurrentPoint = namepossPointC
+                    instructions = "C"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+
+def ChooseBearingTwo(nameCurrentPoint,gridRefCurrentPoint,namepossPointA,gridRefpossPointA,namepossPointB,gridRefpossPointB):
+    BearingA = findBearing(gridRefCurrentPoint,gridRefpossPointA)
+    BearingB = findBearing(gridRefCurrentPoint,gridRefpossPointB)
+    differenceA = findDifference(overallBearing,BearingA)
+    differenceB = findDifference(overallBearing,BearingB)
+    differencesList = [differenceA, differenceB]
+    differencesList = sorted(differencesList)
+    if differencesList[0] == differenceA:
+                    chosenBearing = BearingA
+                    gridRefCurrentPoint = gridRefpossPointA
+                    pastPointsList.append(namepossPointA)
+                    pastPointsList.append(gridRefpossPointA)
+                    nameCurrentPoint = namepossPointA
+                    instructions = "A"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+    elif differencesList[0] == differenceB:
+                    chosenBearing = BearingB
+                    gridRefCurrentPoint = gridRefpossPointB
+                    pastPointsList.append(namepossPointB)
+                    pastPointsList.append(gridRefpossPointB)
+                    nameCurrentPoint = namepossPointB
+                    instructions = "B"
+                    return gridRefCurrentPoint,nameCurrentPoint,instructions
+
+def ChooseBearingOne(nameCurrentPoint,gridRefCurrentPoint,namepossPointA,gridRefpossPointA):
+    BearingA = findBearing(gridRefCurrentPoint,gridRefpossPointA)
+    chosenBearing = BearingA
+    gridRefCurrentPoint = gridRefpossPointA
+    pastPointsList.append(namepossPointA)
+    pastPointsList.append(gridRefpossPointA)
+    nameCurrentPoint = namepossPointA
+    instructions = "A"
+    return gridRefCurrentPoint,nameCurrentPoint,instructions
+
+def ChooseBearing(nameCurrentPoint):
+    if nameCurrentPoint == "Arch Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingTwo("Arch Tor","633 781","Postbridge visitor centre","646 788","Powder Mills river crossing","628 773")
+        if Instructions == "A":
+            instructions = "Walk northeast along the hill just above the gorse until you reach a wall. Behind the wall there are trees to the north and a field to the south. Go through the gate in the wall where the field meets the trees. Walk northeast through the field to the gate on the other side. Go through this gate then walk uphill on the road until you reach a gate on the right. Go through this gate and walk to the gate in the opposite corner of the field. Go through this gate then walk next to the wall to the left until you are almost at the other side. To the right you should now be able to see a small bridge across the stream. Go over the bridge then walk to the stile leading to the track. Follow the track south to the road. The Postbridge visitor centre visitor centre is to the left."            
+            distance = 1900
+            heightClimbed = 0
+        elif Instructions == "B":
+            instructions = "Walk southwest to the stile in the fence then follow the track down the hill to the bridge."
+            distance = 1000
+            heightClimbed = 0
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Assycombe Hill":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingSeven("Assycombe Hill","664 820","the bridge near Metherall","670 837","Water Hill","671 813","Merripit Hill","657 803","Postbridge visitor centre","646 788","Stannon Tor","646 811","Sittaford Tor","633 830","the bridge near Long Ridge","639 845")
+        if Instructions == "A":
+            instructions = "Follow the wall around the outside of Fernworthy Forest north northeast until you reach a road."
+            distance = 1900
+            heightClimbed = 0
+        elif Instructions == "B":
+            instructions = "Walk due south until you reach a path. Follow the path southeast without turning off it until you reach the cairn on Water Hill."
+            distance = 1100
+            heightClimbed = 0
+        elif Instructions == "C":
+            instructions = "Walk west southwest along the wall around the outside of Fernworthy Forest until you reach a path heading south. Follow the path without turning off it until you reach a wall. Follow the wall south to the gate in the wall at the top of Merripit Hill."
+            distance = 2100
+            heightClimbed = 20
+        if Instructions == "D":
+            instructions = "Walk west southwest along the wall around the outside of Fernworthy Forest until you reach a path heading south. Follow the path without turning off it to the second gate you reach. Go through the gate then follow the remains of a wall west until you reach a path heading southwest. Follow this path until you reach a track then follow the track south to the road at Higher Merripit. Follow the road then track west then turn left and follow the footpath to the road. Turn right and walk along the pavement to Postbridge visitor centre visitor centre."
+            distance = 4500
+            heightClimbed = 0
+        elif Instructions == "E":
+            instructions = "Walk directly south to the second path you. Follow this path west until you reach a wall with a gate in it with a stile on the left. If the gate is locked go over the stile then go over another stile in the wall to your right. If not you can just go through the gate. Follow the path that runs alongside the wall to your left to the corner of the wall then follow the path which heads southwest to Stannon Tor."
+            distance = 2200
+            heightClimbed = 60
+        elif Instructions == "F":
+            instructions = "Walk directly south to the second path you. Follow this path west until you reach a wall with a gate in it with a stile on the left. If the gate is locked go over the stile then go over another stile in the wall to your right. If not you can just go through the gate. Now follow a bearing of 291° from the gate to the footpath. Follow the footpath north until you reach a path heading northwest up the hill. Follow this path to Sittaford Tor."
+            distance = 4200
+            heightClimbed = 120
+        elif Instructions == "G":
+            instructions = "Walk directly south to the second path you. Follow this path west until you reach a wall with a gate in it with a stile on the left. If the gate is locked go over the stile then go over another stile in the wall to your right. If not you can just go through the gate. Now follow a bearing of 299° from the gate to the footpath. Follow the footpath north until you are parallel with a gate into Fernworthy forest on the hill to your right. Now walk northwest to the closest bridge over the North Teign River."
+            distance = 5200
+            heightClimbed = 70   
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Bagga Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingTwo("Bagga Tor","548 806","White Barrow","568 793","Standon Steps","539 815")
+        if Instructions == "A":
+            instructions = "Follow the footpath uphill to White Barrow. Walk near to the wall to your right so that you don’t accidently follow the track towards Lynch Tor. When you reach the corner of the wall, and the footpath continues to White Barrow a compass bearing of 128° can be useful as the footpath at this point can be hard to see."
+            distance = 2400
+            heightClimbed = 120
+        elif Instructions == "B":
+            instructions = "Follow the footpath down the hill to a gate. Go through the gate then follow the footpath downhill until you reach a gate on the left. Go through the gate and follow the footpath you reach another gate and the footpath forks. Turn right and go over a small bridge so that you are walking with the river to your left until you reach the bridges at Standon Steps."
+            distance = 1500
+            heightClimbed = 0  
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Beardown Tors":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Beardown Tors","603 775","Rough Tor","606 798","Lower White Tor","619 792","Longaford Tor","615 778","Holming Beam","590 769","Lydford Tor","599 781")
+        if Instructions == "A":
+            instructions = "Walk north until you reach the firing range marker posts then follow them north to Rough Tor, crossing the stream at Foxholes."
+            distance = 2500
+            heightClimbed = 100
+        elif Instructions == "B":
+            instructions = "Walk northeast to the weir and cross the river then walk northeast to the wall leading to Higher White Tor. Cross the wall by going over the stile near Higher White Tor then follow the path to Lower White Tor."
+            distance = 2600
+            heightClimbed = 100
+        elif Instructions == "C":
+            instructions = "Walk northeast to the weir and cross the river then follow the footpath up the hill to Longaford Tor."
+            distance = 1500
+            heightClimbed =60
+        elif Instructions == "D":
+            instructions = "From the most easterly of the Beardown Tors look west. On the other side of the valley you should be able to see two tracks that meet in a V-shape. Directly below the bottom of the V there is a bridge over the stream. Walk down the hill to the bridge and cross the river then walk up the hill to the tracks. Walk up the left track until you reach a wall at the top of the hill."
+            distance = 1400
+            heightClimbed = 60
+        elif Instructions == "E":
+            instructions = "Walk north to the footpath then follow it west to Lydford Tor."
+            distance = 1000
+            heightClimbed = 10
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Black Dunghill river crossing":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingThree("Black Dunghill river crossing","578 777","Holming Beam","590 769","Great Mis Tor","562 769","Dead Lake","565 784")
+        if Instructions == "A":
+            instructions = "Follow the footpath south until you reach a wall then follow the wall east until you reach the corner, then follow it south until you reach a track."
+            distance = 1700
+            heightClimbed = 60
+        elif Instructions == "B":
+            instructions = "Follow the footpath southeast to the wall running west/east then follow this wall west. The second and third streams along this wall can be difficult to cross however they can be a bit less boggy around 10 – 20 m upstream from the wall. At the corner of the wall there is a footpath leading to Great Mis tor. "
+            distance = 3300
+            heightClimbed = 90
+        elif Instructions == "C":
+            instructions = "Follow the footpath southeast to the wall running west/east then follow this wall west. The second and third streams along this wall can be difficult to cross however they can be a bit less boggy around 10 – 20 m upstream from the wall. At the corner of the wall there is a footpath leading to Great Mis tor. "
+            distance = 1700
+            heightClimbed =10
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Braddon Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingThree("Braddon Tor","622 799","Postbridge visitor centre","646 788","Lower White Tor","619 792","Rough Tor","606 798")
+        if Instructions == "A":
+            instructions = "Follow the wall northeast to the gate on the top of Braddon Down. Go through the gate then follow the path down the hill to the road. The visitor entre is to the left."
+            distance = 3100
+            heightClimbed = 10
+        elif Instructions == "B":
+            instructions = "Follow the wall southwest to where it turns and goes southeast. From the corner walk south south west up the hill to Lower White Tor."
+            distance = 800
+            heightClimbed = 30
+        elif Instructions == "C":
+            instructions = "Walk due west to Brown’s House ruin. Watch out as this section can be boggy even in dry weather. Then follow the path to the river crossing where the wall intersects the river. Cross the river then follow the path by the wall up the hill to Rough Tor. "
+            distance = 1800
+            heightClimbed = 70
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Cox Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingOne("Cox Tor","530 761","Roos Tor","543 765")
+        instructions = "Walk east northeast to Roos Tor."
+        distance = 1200
+        heightClimbed = 40
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Conies Down":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingThree("Conies Down","580 789","Lydford Tor","599 781","Dead Lake","565 784","White Barrow","568 793")
+        if Instructions == "A":
+            instructions = "Follow the footpath east to Lydford Tor."
+            distance = 2000
+            heightClimbed = 60
+        elif Instructions == "B":
+            instructions = "Follow the footpath west until you cross a stream. Then follow a bearing of 224° over Cock’s Hill until you reach a footpath. Follow this footpath west until you reach a large ditch. Dead Lake runs at the bottom of it."
+            distance = 1900
+            heightClimbed = 40
+        elif Instructions == "C":
+            instructions = "Follow the footpath west to a small mound (White Barrow) on the left. This will be after you have crossed a stream."
+            distance = 1400
+            heightClimbed = 40
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Dead Lake":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Dead Lake","565 784","White Barrow","568 793","Black Dunghill river crossing","578 777","Great Mis Tor","562 769","Roos Tor","543 765","the Standing Stone","550 787")
+        if Instructions == "A":
+            instructions = "From the eastern side of Dead Lake follow a bearing of 024° to the footpath then follow the footpath west until you reach a small mound on the left. This is White Barrow."
+            distance = 1000
+            heightClimbed = 40
+        elif Instructions == "B":
+            instructions = "Follow the footpath southeast to the third stream it crosses."
+            distance = 2000 
+            heightClimbed = 40
+        elif Instructions == "C":
+            instructions = "Follow Dead Lake south to where it joins the River Walkham. Cross the river (you may need to walk up or down stream a bit to find a good crossing point) then walk up the hill to Great Mis Tor."
+            distance = 1600
+            heightClimbed = 100
+        elif Instructions == "D":
+            instructions = "Follow a bearing of 257° to the stone circle on Langstone Moor then follow the path southwest to Roos Tor."
+            distance = 3000
+            heightClimbed = 20
+        elif Instructions == "E":
+            instructions = "Follow the footpath west until you reach a standing stone."
+            distance = 1700
+            heightClimbed = 0
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "the bridge near Long Ridge":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingSeven("the bridge near Long Ridge","639 845","the bridge near Metherall","670 837","Assycombe Hill","664 820","Water Hill","671 813","Merripit Hill","657 803","Stannon Tor","646 811","Hartland Tor","641 799","Sittaford Tor","633 830")
+        if Instructions == "A":
+            instructions = "Walk southeast up the hill to the gate in the wall surrounding Fernworthy Forest. Go through the gate then follow the footpath east until you reach the reservoir. Now follow the trck to your right around the edge of the reservoir until you reach a bridge just after the carpark."
+            distance = 4400
+            heightClimbed = 80
+        elif Instructions == "B":
+            instructions = "Walk southeast to the footpath then follow it south to Grey Wethers Stone Circles. Now walk south east over White Ridge to where two walls meet at 656 815. You will be able to see this corner from the top of White Ridge: look south and you will be able to see a wall running east/west to the left of Stannon Tor. Look along this wall to the left until it meets another wall coming down from Fernworthy Forest. At the corner there is a gate in one wall and a stile in the other. If the gate is locked go over the stile to your right then go over another the stile in the wall to your left. If not you can just go through the gate. Now follow the path which goes straight on until you reach a second crossroads. From here walk north to the stone at the top of Assycombe Hill."
+            distance = 5000
+            heightClimbed = 150
+        elif Instructions == "C":
+            instructions = "Walk southeast to the footpath then follow it south to Grey Wethers Stone Circles. Now walk south east over White Ridge to where two walls meet at 656 815. You will be able to see this corner from the top of White Ridge: look south and you will be able to see a wall running east/west to the left of Stannon Tor. Look along this wall to the left until it meets another wall coming down from Fernworthy Forest. This is the corner you're aiming for. At the corner there is a gate in one wall and a stile in the other. If the gate is locked go over the stile to your right then go over another the stile in the wall to your left. If not you can just go through the gate. Now follow the path which goes straight on until you reach a third crossroads. Now follow the path to the right to the cairn at the top of Water Hill."
+            distance = 5400
+            heightClimbed = 140
+        elif Instructions == "D":
+            instructions = "Walk southeast to the footpath then follow it south to Grey Wethers Stone Circles. Now walk south east over White Ridge to where two walls meet at 656 815. You will be able to see this corner from the top of White Ridge: look south and you will be able to see a wall running east/west to the left of Stannon Tor. Look along this wall to the left until it meets another wall coming down from Fernworthy Forest. This is the corner you're aiming for. At the corner there is a gate in one wall and a stile in the other. If the gate is locked go over the stile to your right then go over another the stile in the wall to your left. If not you can just go through the gate. Now walk south next to the wall to your right until you reach the gate at the top of the next hill. This is Merripit Hill."
+            distance = 5000
+            heightClimbed = 120
+        elif Instructions == "E":
+            instructions = "Walk southeast to the footpath then follow it south to Grey Wethers Stone Circles. Now walk south south east around the side of White Ridge to Stannon Tor."
+            distance = 3500
+            heightClimbed = 60
+        elif Instructions == "F":
+            instructions = "Walk southeast to the footpath then follow it south to Hartland Tor."
+            distance = 4700
+            heightClimbed = 60
+        elif Instructions == "G":
+            instructions = "Walk southeast to the footpath then follow it southuntil you reach the first walll you go through. Just after the wall there is a path which peels off from the footpath to the right. Follow this path to Sittaford Tor."
+            distance = 1700
+            heightClimbed = 120
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "the bridge near Metherall":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("the bridge near Metherall","670 837","ThornworthyTor","664 851","FernworthyNCorner","653 854","Assycombe Hill","664 820","the bridge near Long Ridge","639 845","Water Hill","671 813")
+        if Instructions == "A":
+            instructions = "Follow the road northwest until you reach a carpark on the right. Follow the path at the bottom of the carpark down the hill to the bridge at the base of the dam. Cross the stream then follow the path up the hill to the end of the dam. From here follow the path that heads north then curves northwest to a gate. Go through the gate then walk north-northwest to Thornworthy Tor."
+            distance = 2100
+            heightClimbed = 90
+        elif Instructions == "B":
+            instructions = "Follow the road northwest until you reach a carpark on the right. Follow the path at the bottom of the carpark down the hill to the bridge at the base of the dam. Cross the stream then follow the path up the hill to the end of the dam. From here follow the path that heads north then curves northwest to a gate. Go through the gate then walk next to the wall to your left until you reach the most northerly point of Fernworthy Forest."
+            distance = 3100
+            heightClimbed = 80
+        elif Instructions == "C":
+            instructions = "Walk south south west next to the wall marking the edge of Fernworthy forest until you reach a stone marking the top of Assycombe Hill."
+            distance = 1800
+            heightClimbed = 130
+        elif Instructions == "D":
+            instructions = "Follow the road northwest to the carpark on the right. Follow the path that leads from the carpark west around the edge of the reservoir until meets a track. Follow the track west to the footpath then follow the footpath west through the forest to the gate in the wall on Long Ridge. Go through the gate then follow the path northwest to the closest bridge over the North Teign River."
+            distance = 4000
+            heightClimbed = 130
+        elif Instructions == "E":
+            instructions = "Follow the path due south along Hurston Ridge to the cairn at the top of Water Hill."
+            distance = 2500
+            heightClimbed = 120
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Holming Beam":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingTwo("Holming Beam","590 769","Beardown Tors","603 775","Black Dunghill river crossing","578 777")
+        if Instructions == "A":
+            instructions = "Follow the track east down the hill and cross the stream using the bridge. There is also a bridge about 400m south. Do not use this bridge as it is falling apart and is surrounded by blanket bog. After crossing the stream walk up the hill to Beardown Tors."
+            distance = 1200
+            heightClimbed = 80
+        elif Instructions == "B":
+            instructions = "Follow the wall north until you reach the corner, then follow it west until you reach a footpath heading northwest away from the wall. Follow the footpath northwest to the first stream it crosses."
+            distance = 1700
+            heightClimbed = 30
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Hartland Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Hartland Tor","641 799","the bridge near Long Ridge","639 845","Stannon Tor","646 811","Merripit Hill","657 803","Postbridge visitor centre","646 788","Sittaford Tor","633 830")
+        if Instructions == "A":
+            instructions = "Follow the footpath north until you are parallel with a gate into Fernworthy Forest then walk north north east down the hill to the closest bridge over the North Teign River."
+            distance = 5600
+            heightClimbed = 80
+        elif Instructions == "B":
+            instructions = "Follow the path north. Cross the second wall you meet as far east as you can then walk east with this wall to your right until you reach the northern corner of the Sheepfold. From here walk northeast to Stannon Tor."
+            distance = 1600
+            heightClimbed = 60
+        elif Instructions == "C":
+            instructions = "Follow the footpath south until it splits in two so that you can either turn right towards Postbridge or go straight on through a gate. Go through the gate then follow the footpath then road to Higher Merripit. At Higher Merripit turn left. After you go through a gate follow the track north until you reach a wall with a gap in it where the track goes through. Follow the path leading northeast from here to the gate where this field meets 3 other fields. Go through the gate then walk uphill next to the wall until you reach a path heading away from the wall at the top of Merripit Hill."
+            distance = 2600
+            heightClimbed = 100
+        elif Instructions == "D":
+            instructions = "Follow the footpath south until you reach the road. Turn right and walk along the pavement to Postbridge visitor centre."
+            distance = 1600
+            heightClimbed = 0
+        elif Instructions == "E":
+            instructions = "Follow the footpath north until you reach a path on the right heading northwest to Sittaford Tor. Follow this path up the hill to Sittaford Tor."
+            distance = 3500
+            heightClimbed = 120
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Great Mis Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingTwo("Great Mis Tor","562 769","Dead Lake","565 784","Black Dunghill river crossing","578 777")
+        if Instructions == "A":
+            instructions = "Follow a bearing of 015° to the River Walkham. Cross the river (you may need to walk up or down stream a bit to find a good crossing point) then follow Dead Lake up the hill until you reach the footpath. Dead Lake runs at the bottom of a massive ditch so it is easier to walk on the side of the ditch."
+            distance = 1600
+            heightClimbed = 30
+        elif Instructions == "B":
+            instructions = "Follow the footpath south to the corner of the wall at 566 764 then follow this wall east northeast until you cross the fourth stream. The second and third streams can be difficult to cross however they are a bit less boggy around 10 – 20 m upstream from the wall. At the fourth stream follow the footpath which heads northwest until you reach another stream."
+            distance = 3500
+            heightClimbed = 60
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Littaford Tors":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFour("Littaford Tors","615 771","Longaford Tor","615 778","Powder Mills river crossing","628 773","Beardown Tors","603 775","Lydford Tor","599 781")
+        if Instructions == "A":
+            instructions = "Walk due north until you reach Longaford Tor."
+            distance = 700
+            heightClimbed = 0
+        elif Instructions == "B":
+            instructions = "Walk northeast until you reach the wall then go through the nearest gate then continue to walk northeast until you reach the footpath. Follow the footpath down the hill to the bridge over Cherry Brook."
+            distance = 1600
+            heightClimbed = 0
+        elif Instructions == "C":
+            instructions = "Walk north northwest down the hill until you reach the path that runs alongside Wistman’s Wood then continue north along this to the weir. At the weir cross the river then follow the path up the hill and to the left to Beardown Tors."
+            distance = 2000
+            heightClimbed = 70
+        elif Instructions == "D":
+            instructions = "Walk north northwest down the hill until you reach the weir. Cross the river then follow the path up the hill and west to Lydford Tor."
+            distance = 2200
+            heightClimbed = 80
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Lower White Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Lower White Tor","619 792","Braddon Tor","622 799","Longaford Tor","615 778","Beardown Tors","603 775","Lydford Tor","599 781","Rough Tor","606 798")
+        if Instructions == "A":
+            instructions = "Walk north northeast to the corner of the wall on the right then follow this wall northeast to Braddon Tor."
+            distance = 800
+            heightClimbed = 30
+        elif Instructions == "B":
+            instructions = "Follow the path south to Higher White Tor and use the stile to cross the wall then continue along the path to Longaford Tor."
+            distance = 1400
+            heightClimbed = 10
+        elif Instructions == "C":
+            instructions = "Follow the path south to Higher White Tor and use the stile to cross the wall then follow a bearing of 237° to the weir and cross the river here. Then follow the path up the hill and to the left to Beardown Tors."
+            distance = 2400
+            heightClimbed = 80
+        elif Instructions == "D":
+            instructions = "Follow the path south to Higher White Tor and use the stile to cross the wall then follow a bearing of 237° to the weir and cross the river here. Then follow the path up the hill and to the right to Lydford Tor."
+            distance = 2900
+            heightClimbed = 70
+        elif Instructions == "E":
+            instructions = "Follow the path northwest to Brown’s House ruin then west to the river crossing where the wall intersects the river then follow the wall up the hill to Rough Tor."
+            distance = 1700
+            heightClimbed = 80
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Longaford Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingSix("Longaford Tor","615 778","Lower White Tor","619 792","Powder Mills river crossing","628 773","Littaford Tors","615 771","Beardown Tors","603 775","Lydford Tor","599 781","Rough Tor","606 798")
+        if Instructions == "A":
+            instructions = "Follow the path north northwest to Higher White Tor and use the stile to cross the wall then continue along the path north to Lower White Tor."
+            distance = 1400
+            heightClimbed = 30
+        elif Instructions == "B":
+            instructions = "Follow the footpath east to Powder mills river crossing."
+            distance = 1400
+            heightClimbed = 0
+        elif Instructions == "C":
+            instructions = "Walk due south to Littaford Tors."
+            distance = 1000
+            heightClimbed = 0
+        elif Instructions == "D":
+            instructions = "Follow the footpath to the west down the hill to the weir. At the weir cross the river then follow the path up the hill and to the left to Beardown Tors."
+            distance = 1400
+            heightClimbed = 70
+        elif Instructions == "E":
+            instructions = "Follow the footpath to the west down the hill to the weir. At the weir cross the river then follow the path up the hill and to the right to Lydford Tor."
+            distance = 1700
+            heightClimbed = 80
+        elif Instructions == "F":
+            instructions = "From the most northerly point of Longaford Tor walk on a bearing of 311° to the river crossing where the wall intersects the river. Cross the river then walk north up the hill to Rough Tor."
+            distance = 2200
+            heightClimbed = 100
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Lydford Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Lydford Tor","599 781","Rough Tor","606 798","Lower White Tor","619 792","Longaford Tor","615 778","Beardown Tors","603 775","Conies Down","580 789")
+        if Instructions == "A":
+            instructions = "Walk north and use the stile to cross the wall. Then follow the wall east to the marker posts and follow these northeast to Foxholes. Cross the stream then continue to follow the marker posts up the hill to Rough Tor."
+            distance = 2100
+            heightClimbed = 100
+        elif Instructions == "B":
+            instructions = "Follow the footpath east to the weir. Cross the river then walk northeast to the wall leading to Higher White Tor. Cross the wall by going over the stile near Higher White Tor then follow the path to Lower White Tor."
+            distance = 2900
+            heightClimbed = 90
+        elif Instructions == "C":
+            instructions = "Walk east along the footpath to the weir. Cross the river here and then follow the footpath up the hill to Longaford Tor."
+            distance = 1700
+            heightClimbed = 50
+        elif Instructions == "D":
+            instructions = "Walk southeast to the footpath then follow it east to the top of the hill then follow the path south to Beardown Tors."
+            distance = 800
+            heightClimbed = 0
+        elif Instructions == "E":
+            instructions = "Follow the footpath west to the top of the first hill you walk up after crossing a small stream. This is Conies Down."
+            distance = 2000
+            heightClimbed = 70
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Merripit Hill":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Merripit Hill","657 803","Assycombe Hill","664 820","Water Hill","671 813","Postbridge visitor centre","646 788","Hartland Tor","641 799","Stannon Tor","646 811")
+        if Instructions == "A":
+            instructions = "Follow the wall north until you reach the second path peels away from the wall and heads northeast. Follow this path until you reach a crossroads. Follow the path to the right until you reach the second of two more crossroads. Follow the path on the left until you reach yet another crossroads then walk north to the stone at the top of Assycombe Hill."
+            distance = 2100
+            heightClimbed = 70
+        elif Instructions == "B":
+            instructions = "Follow the wall north until you reach the second path peels away from the wall and heads northeast. Follow this path until it joins another larger path. Now follow this larger path southeast until you reach a path coming off it on the right. Follow this path to the cairn at the top of Water Hill."
+            distance = 2500
+            heightClimbed = 60
+        elif Instructions == "C":
+            instructions = "Go through the gate then follow the wall south until you reach a corner, then follow it west until you reach a track. Follow the track south to the road at Higher Merripit. Follow the road then track west then turn left and follow the footpath to the road. Turn right and walk along the pavement to Postbridge visitor centre."
+            distance = 2600
+            heightClimbed = 0
+        elif Instructions == "D":
+            instructions = "Go through the gate then follow the wall south until you reach a corner, then follow it west until you reach a track. Follow the track south until you reach the road at Higher Merripit. Follow the road then track west then turn left and follow the footpath to the road. Turn right and walk along the pavement to Postbridge visitor centre."
+            distance = 3000
+            heightClimbed = 50
+        elif Instructions == "E":
+            instructions = "Go through the gate then follow the wall south until you reach a corner, then follow it west until you reach a track. Walk straight across the track then continue to follow the wall (on the same side of it as before) to Stannon Brook. Cross it then walk up the hill next to the wall to where another wall meets it. There are a variety of gates and stiles here but it doesn’t matter which ones you go over/through as long as you end up on the other side of the wall that meets the wall that you were following up the hill and the wall that you were following up the hill is still on your left. From here follow the wall up to the corner of The Sheepfold then walk northeast up the hill to Stannon Tor."
+            distance = 2100
+            heightClimbed = 110
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Postbridge visitor centre":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Postbridge visitor centre","646 788","Hartland Tor","641 799","Merripit Hill","657 803","Assycombe Hill","664 820","Arch Tor","633 781","Braddon Tor","622 799")
+        if Instructions == "A":
+            instructions = "Walk east along the pavement until you reach a gate just after you go over the bridge. Go through the gate then follow the footpath to Hartland Tor."
+            distance = 1600
+            heightClimbed = 70
+        elif Instructions == "B":
+            instructions = "Walk east along the pavement until you reach a gate just after you go over the bridge. Go through the gate then follow the footpath until you reach a gate on the right. Go through the gate then follow the footpath then road to Higher Merripit. At Higher Merripit turn left. After you go through a gate follow the track north until you reach a wall with a gap in it where the track goes through. Follow the path leading northeast from here to the gate where this field meets 3 other fields. Go through the gate then walk uphill next to the wall until you reach a path heading away from the wall at the top of Merripit Hill."
+            distance = 3300
+            heightClimbed = 110
+        elif Instructions == "C":
+            instructions = "Walk east along the pavement until you reach a gate just after you go over the bridge. Go through the gate then follow the footpath until you reach a gate on the right. Go through the gate then follow the footpath then road to Higher Merripit. At Higher Merripit turn left. After you go through a gate follow the track north until it bends to the left to Stannon. Now follow the path which heads northeast to a gate in the wall. Go through the gate then follow the path which stays next to the wall for a few hundred metres then heads away from the wall but still towards Fernworthy forest. When this path crosses another path take the path to the right. When this path forks walk north to the stone at the top of Assycombe Hill."
+            distance = 5400
+            heightClimbed = 170
+        elif Instructions == "D":
+            instructions = "Walk around to the back of the visitor centre and onto the track. Follow the track north for about 100m then turn left and go through the gate. Walk to the opposite corner of the field, crossing the stream in the middle by going over the bridge which is close to the fence to your right. At the opposite corner go over the stile then walk to the opposite corner of this field and go through the gate. Now turn left and walk down the road until you reach a gate on the right. Go through the gate then walk towards the left corner of the trees on the other side. Go through the gate here then follow the path up and along the hill to Arch Tor. Do not attempt to go through the gorse."
+            distance = 1900
+            heightClimbed = 90
+        elif Instructions == "E":
+            instructions = "Walk around to the back of the visitor centre and onto the track. Follow the track and then path north l you reach a gate in a wall on Broad Down. Go through the gate turn left and walk next to the wall until you reach Braddon Tor."
+            distance = 3100
+            heightClimbed = 190
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Powder Mills river crossing":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingThree("Powder Mills river crossing","628 773","Arch Tor","633 781","Littaford Tors","615 771","Longaford Tor","615 778")
+        if Instructions == "A":
+            instructions = "Follow the track east to the stile at 629 776 then walk on a bearing of 039° to Arch Tor."
+            distance = 1000
+            heightClimbed = 50
+        elif Instructions == "B":
+            instructions = "Follow the footpath west until you reach the gate in the wall near Longaford Tor then walk south southwest to the closest of Littaford Tors."
+            distance = 1300
+            heightClimbed = 700
+        elif Instructions == "C":
+            instructions = "Follow the footpath west to Longaford Tor."
+            distance = 1400
+            heightClimbed = 110
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Roos Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingThree("Roos Tor","543 765","the Standing Stone","550 787","Dead Lake","565 784","Cox Tor","530 761")
+        if Instructions == "A":
+            instructions = "Walk north to the corner of the stone wall near the fords at 547 781 then follow the track up the hill to the footpath. Follow the footpath northeast until you reach a standing stone."
+            distance = 2400
+            heightClimbed = 20
+        elif Instructions == "B":
+            instructions = "Follow the path northeast to the stone circle on Langstone Moor then walk northeast to the footpath. Follow the footpath east to Dead Lake which runs at the bottom of a massive ditch."
+            distance = 3000
+            heightClimbed = 30
+        elif Instructions == "C":
+            instructions = "Walk east south east to Cox Tor."
+            distance = 1200
+            heightClimbed = 30
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Rough Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("Rough Tor","606 798","Lower White Tor","619 792","Longaford Tor","615 778","Beardown Tors","603 775","Holming Beam","590 769","Lydford Tor","599 781")
+        if Instructions == "A":
+            instructions = "Walk west northwest and follow the path alongside the wall to the river crossing where the wall intersects the river. A compass bearing of 067° is useful at the start as the shape of the hill can make it difficult to see the wall at first. Cross the river then follow the path to Brown’s house ruin and then to Lower White Tor."
+            distance = 1700
+            heightClimbed = 30
+        elif Instructions == "B":
+            instructions = "Follow a bearing of 163° to the river crossing at 610 785 where a wall intersects the river. Cross the river then walk southeast up the hill to Longaford Tor."
+            distance = 2100
+            heightClimbed = 40
+        elif Instructions == "C":
+            instructions = "Follow the marker posts south to Foxholes and cross the stream. Then continue to follow the posts up the hill. At the top of the hill follow the path south to Beardown Tors."
+            distance = 2400
+            heightClimbed = 40
+        elif Instructions == "D":
+            instructions = "Follow the marker posts south to Foxholes and cross the stream. Then follow a bearing of 217° to the river crossing at 595 771. Cross the river then walk straight up the hill until you reach a forked track. Take the left-hand track and follow it to where it joins the larger track running NNW/SSE."
+            distance = 3500
+            heightClimbed = 100
+        elif Instructions == "E":
+            instructions = "Follow the marker posts south to Foxholes and cross the stream. Then follow the marker posts up the hill to the wall. Follow the wall to Lydford Tor and cross the wall by going over the stile."
+            distance = 2100
+            heightClimbed = 50
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed    
+    elif nameCurrentPoint == "the Standing Stone":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingThree("the Standing Stone","550 787","White Barrow","568 793","Dead Lake","565 784","Roos Tor","543 765")
+        if Instructions == "A":
+            instructions = "Follow the footpath northeast until you reach a small mound on the right (White Barrow). A compass bearing of 064° may be needed at the start as the boggy ground can make the path hard to see."
+            distance = 1900
+            heightClimbed = 40
+        elif Instructions == "B":
+            instructions = "Follow the footpath east until you reach Dead Lake. It runs at the bottom of a large ditch. A compass bearing of 111° may be needed at the start as the bog can make the path hard to see."
+            distance = 1700
+            heightClimbed = 20
+        elif Instructions == "C":
+            instructions = "Follow the footpath southeast for about 600m then follow the track on the left south to the fords at 547 781. Then walk south up the hill to Roos tor."
+            distance = 2400
+            heightClimbed = 30
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Sittaford Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingSeven("Sittaford Tor","633 830","the bridge near Long Ridge","639 845","Assycombe Hill","664 820","Water Hill","671 813","Stannon Tor","646 811","Hartland Tor","641 799","Merripit Hill","657 803","QuintinsMan","621 838")
+        if Instructions == "A":
+            instructions = "If you are not already, make sure that you are on the northern side of Sittaford Tor. Now walk next to the wall to your right until you reach a gate with a footpath going through it. Follow the footpath north until you are parallel with a gate into Fernworthy forest on the hill to your right. Now walk north west to the closest bridge over the North Teign River."
+            distance = 1900
+            heightClimbed = 0
+        elif Instructions == "B":
+            instructions = "Make sure that you are on the southeastern side of Sittaford Tor. Follow a compass bearing of 128° until you reach a wall which runs east northeast/west southwest. You will be able to see this corner from the top of White Ridge: look south and you will be able to see a wall running east/west to the left of Stannon Tor. Look along this wall to the left until it meets another wall coming down from Fernworthy Forest. This is the corner you're aiming for. At the corner there is a gate in one wall and a stile in the other. If the gate is locked go over the stile to your right then go over another the stile in the wall to your left. If not you can just go through the gate. Now follow the path which goes straight on until you reach a second crossroads. From here walk north to the stone at the top of Assycombe Hill."
+            distance = 4000
+            heightClimbed = 110
+        elif Instructions == "C":
+            instructions = "Make sure that you are on the southeastern side of Sittaford Tor. Now walk south east over White Ridge to where two walls meet at 656 815. You will be able to see this corner from the top of White Ridge: look south and you will be able to see a wall running east/west to the left of Stannon Tor. Look along this wall to the left until it meets another wall coming down from Fernworthy Forest. This is the corner you're aiming for. If the gate is locked go over the stile to your right then go over another the stile in the wall to your left. If not you can just go through the gate. Now follow the path which goes straight on until you reach a third crossroads. Now follow the path to the right to the cairn at the top of Water Hill."
+            distance = 4600
+            heightClimbed = 100
+        elif Instructions == "D":
+            instructions = "Make sure that you are on the southeastern side of Sittaford Tor. Follow the path that heads southeast down the hill to the footpath. When you reach the footpath follow a bearing of 144° to Stannon Tor."
+            distance = 2400
+            heightClimbed = 20
+        elif Instructions == "E":
+            instructions = "Make sure that you are on the southeastern side of Sittaford Tor. Follow the path that heads southeast down the hill to the footpath. Follow the footpath south to Hartland Tor."
+            distance = 3400
+            heightClimbed = 0
+        elif Instructions == "F":
+            instructions = "Make sure you are on the southern side of Sittaford Tor. Facing away from Sittaford Tor, follow the wall to your left south until it meets another wall. Do not go through the gate in this wall but follow it west until you reach Braddon Tor."
+            distance = 4300
+            heightClimbed = 140
+        elif Instructions == "G":
+            instructions = "Make sure that you are on the western side of Sittaford Tor. Facing away from Sittaford Tor, follow the wall to your right northwest until you reach the streams at Little Varracombe. You may need to walk upstream a bit to find a good crossing point where the streams have not yet converged. Once you have crossed the streams walk back towards the wall then follow it up the hill until it turns into a path then follow the path to Quintin’s Man."
+            distance = 1400
+            heightClimbed = 80
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Standon Steps":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingTwo("Standon Steps","539 815","Lanehead","537 823","Bagga Tor","548 805")
+        if Instructions == "A":
+            instructions = "Cross the bridges then follow the footpath west to the road at Higher Willsworthy. When you reach the road turn right and walk until you reach Lanehead carpark."
+            distance = 1100
+            heightClimbed = 40
+        elif Instructions == "B":
+            instructions = "Cross the bridges then follow the footpath up the hill slightly then to the right until you reach a gate after crossing a small bridge. Go through the gate and continue to follow the footpath until you reach another gate. Go through this gate then turn right and walk up the hill to yet another gate. Go through this gate then follow the footpath to Bagga Tor."
+            distance = 1500
+            heightClimbed = 120
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Stannon Tor":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingSix("Stannon Tor","646 811","Assycombe Hill","664 820","Water Hill","671 813","Merripit Hill","657 803","Hartland Tor","641 799","Sittaford Tor","633 830","the bridge near Long Ridge","639 845")
+        if Instructions == "A":
+            instructions = "Walk east northeast to the corner of the wall then follow the side to the left until you reach a corner where another wall with a gate in it meets this wall.. There is also a stile in the wall that you have been walking next to. If the gate is locked go over the stile to your right then go over another the stile in the wall to your left. If not you can just go through the gate. Now follow the path which goes straight on until you reach a second crossroads. From here walk north to the stone at the top of Assycombe Hill."
+            distance = 2300
+            heightClimbed = 90
+        elif Instructions == "B":
+            instructions = "Walk east northeast to the corner of the wall then follow the side to the left until you reach a corner where another wall with a gate in it meets this wall.. There is also a stile in the wall that you have been walking next to. If the gate is locked go over the stile to your right then go over another the stile in the wall to your left. If not you can just go through the gate. Now follow the path which goes straight on until you reach a third crossroads. Now follow the path to the right to the cairn at the top of Water Hill."
+            distance = 2800
+            heightClimbed = 90
+        elif Instructions == "C":
+            instructions = "Walk south down the hill until you reach a wall. Walk next to the wall down the hill until you reach a group of stiles and gates, and a wall goes straight across your path. It doesn’t matter which gates/stiles you go through, as long as you end up on the other side of the wall that cut across your path and with the wall that you were walking next to still on your right. Now continue to walk with this wall on your right until you reach a track. Walk straight across the track and continue to follow the wall (with it on your right). At the corner of the field turn right and walk next to the wall until you reach a gate. Go through the gate (this is the top of Merripit Hill)."
+            distance = 1900
+            heightClimbed = 100
+        elif Instructions == "D":
+            instructions = "Walk southwest to the corner of the Sheepfold then walk next to the right wall until you reach another wall. Go through the first gate in this wall then follow the path south along the top of the hill to Hartland Tor."
+            distance = 1500
+            heightClimbed = 10
+        elif Instructions == "E":
+            instructions = "Follow a bearing of 326° until you reach the footpath then follow footpath north until you reach a path heading northwest up the hill. Follow this path up to Sittaford Tor. "
+            distance = 2500
+            heightClimbed = 90
+        elif Instructions == "F":
+            instructions = "Follow a bearing of 331° until you reach the footpath then follow the footpath north until you are parallel with a gate into Fernworthy forest on the hill to your right. Now walk northwest to the closest bridge over the North Teign River."
+            distance = 3600
+            heightClimbed = 30
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "Water Hill":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFour("Water Hill","671 813","the bridge near Metherall","670 837","Stannon Tor","646 811","Sittaford Tor","633 830","Assycombe Hill","664 820")
+        if Instructions == "A":
+            instructions = "Follow the path due north to where a road goes into Fernworthy forest."
+            distance = 2400
+            heightClimbed = 0
+        elif Instructions == "B":
+            instructions = "Follow the path heading northwest. When it forks take the left path. Turn right on the second path this path crosses right until it meets another path. Turn left on this path and follow it until it forks. Follow the right fork until it crosses another path. Turn left on this path and follow it until you reach a wall with a gate in it with a stile on the left. If the gate is locked go over the stile then go over another stile in the wall to your right. If not you can just go through the gate. Follow the path that runs alongside the wall to your left to the corner of the wall then follow the path which heads southwest to Stannon Tor."
+            distance = 2800
+            heightClimbed = 80
+        elif Instructions == "C":
+            instructions = "Follow the path heading northwest. When it forks take the left path. Turn right on the second path this path crosses right until it meets another path. Turn left on this path and follow it until it forks. Follow the right fork until it crosses another path. Turn left on this path and follow it until you reach a wall with a gate in it with a stile on the left. If the gate is locked go over the stile then go over another stile in the wall to your right. If not you can just go through the gate. Follow a bearing of 295° until you reach the footpath then follow the footpath north until you reach a path on the left heading northwest up the hill. Follow the path to Sittaford Tor."
+            distance = 2500
+            heightClimbed = 60
+        elif Instructions == "D":
+            instructions = "Follow the path heading northwest. When it forks take the right path. Continue on this path until it meets 4 other paths. Follow the most northerly one to the stone at the top of Assycombe Hill."
+            distance = 1000
+            heightClimbed = 30
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+    elif nameCurrentPoint == "White Barrow":
+        gridRefCurrentPoint,nameCurrentPoint,Instructions = ChooseBearingFive("White Barrow","568 793","Conies Down","580 789","Black Dunghill river crossing","578 777","Dead Lake","565 784","the Standing Stone","550 787","Bagga Tor","548 806")
+        if Instructions == "A":
+            instructions = "Walk east on the footpath until you reach the top of the next hill without going off the path."
+            distance = 1400
+            heightClimbed = 40
+        elif Instructions == "B":
+            instructions = "Follow a bearing of 160° until you reach a footpath. Follow the footpath east to the third stream it crosses."
+            distance = 2200
+            heightClimbed = 30
+        elif Instructions == "C":
+            instructions = "Walk due south until you reach a footpath then follow the footpath west until you reach a massive ditch (Dead Lake runs at the bottom of it)."
+            distance = 1300
+            heightClimbed = 0
+        elif Instructions == "D":
+            instructions = "Follow the footpath west until you reach a standing stone."
+            distance = 2000
+            heightClimbed = 0
+        elif Instructions == "E":
+            instructions = "Follow the footpath west until it forks then follow it northwest to Bagga Tor."
+            distance = 2300
+            heightClimbed = 0
+        return gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed
+
+
+overallBearing = findBearing(GridReferenceSix1,GridReferenceSix2)
+
+
+gridRefDifference = 80
+
+
+
+
+nameStartPoint,gridRefStartPoint = chooseNearestPoint(StartSquare)
+nameCurrentPoint = nameStartPoint
+gridRefCurrentPoint = gridRefStartPoint
+
+nameEndPoint,gridRefEndPoint = chooseNearestPoint(endSquare)
+NameEnd = nameEndPoint
+GridRefEnd = gridRefEndPoint  
+
+GridRefEndList = GridRefEnd.split( )
+
+eastingsEnd = int(GridRefEndList[0])
+northingsEnd = int(GridRefEndList[1])
+GridRefEndoneNumber = eastingsEnd*1000 + northingsEnd    
+
+instructionsList = []
+distanceList = []
+heightClimbedList = []
+
+
+while gridRefDifference != 0:
+    gridRefCurrentPoint,nameCurrentPoint,instructions,distance,heightClimbed = ChooseBearing(nameCurrentPoint)
+    instructionsList.append(instructions)
+    distanceList.append(distance)
+    heightClimbedList.append(heightClimbed)    
+    overallBearing = findBearing(gridRefCurrentPoint,GridRefEnd)
+    gridRefCurrentPointList = gridRefCurrentPoint.split( )
+    eastingsCurrent = int(gridRefCurrentPointList[0])
+    northingsCurrent = int(gridRefCurrentPointList[1])
+    gridRefCurrentPointoneNumber = eastingsCurrent*1000 + northingsCurrent
+    gridRefDifference = gridRefCurrentPointoneNumber - GridRefEndoneNumber
+
+pastPointsListLength = len(pastPointsList)
+
+pastPointsNamesList = pastPointsList.copy()
+pastPointsGridRefsList = pastPointsList.copy()
+
+x = pastPointsListLength-1
+while x >= 1:
+    pastPointsNamesList.pop(x)
+    x = x-2
+
+y = pastPointsListLength-2
+while y >= 0:
+    pastPointsGridRefsList.pop(y)
+    y = y-2
+
+
+print("The most direct route between ",GridReferenceSix1," and ",GridReferenceSix2," is:")
+print(GridReferenceSix1," --> ",end="")
+for i in range (len(pastPointsNamesList)):
+    print(pastPointsNamesList[i]," --> ",end="")
+print(GridReferenceSix2)
+    
+print("")
+
+print("Navigation instructions:")
+print("First, please make your way to ",nameStartPoint," at ",gridRefStartPoint,)
+for i in range (len(pastPointsNamesList)):
+    print("Your next waypoint is: ",end="",)
+    print(pastPointsNamesList[i],"at",pastPointsGridRefsList[i],".")
+    print("Instructions: ",end="",)
+    print(instructionsList[i])
+    print("")
+    
